@@ -1,0 +1,99 @@
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <h1 class="navbar-brand">Job Tracker</h1>
+
+    </div>
+</nav>
+
+<div class="container">
+    <!-- Content here -->
+    <div class="d-sm-flex flex-column justify-content-center w-100">
+        <div class="mx-auto">
+            <h2>Applied Jobs</h2>
+        </div>
+        <div class="d-flex justify-content-between align-items-end">
+            <div class="container w-25">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Filter:</span>
+                    <input type="text" class="form-control" placeholder="Enter Company Name" aria-label="Username"
+                        aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+        <table class="table table-sm table-striped table-bordered table-hover table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">
+                        Company Name
+                    </th>
+                    <th scope="col">
+                        Applied Date
+                    </th>
+                    <th scope="col w-25">
+                        Job Link
+                    </th>
+
+                    <th scope="col-sm-1">
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Add Job
+                        </button>
+                    </th>
+
+                </tr>
+            </thead>
+
+            <tr *ngFor="let item of summaryData">
+                <td scope="row">
+                    {{item.Name | titlecase}}
+                </td>
+                <td scope="row">
+                    {{item.Applied | date:'MMMM dd, YYYY':'UTC'}}
+                </td>
+                <td scope="row">
+                    <a class="link-dark" href={{item.Link}} target="_blank">{{item.Link}}</a>
+
+                </td>
+                <td scope="row">
+                    <button type="button" class="btn btn-link">Link</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Button trigger modal -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Job</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
