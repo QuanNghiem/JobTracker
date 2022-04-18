@@ -19,9 +19,9 @@ public class JobsController : Controller
 
     [Route("~/api/userJobs")]
     [HttpPost]
-    public async Task<ActionResult<List<Job>>> Get(string id)
+    public async Task<ActionResult<List<Job>>> Get([FromBody] JobFind user)
     {
-        List<Job> jobs = await _jobServ.GetAsync(id);
+        List<Job> jobs = await _jobServ.GetAsync(user.UserId);
 
         if (jobs is null)
         {
@@ -35,10 +35,26 @@ public class JobsController : Controller
     [HttpPost]
     public async Task<IActionResult> Post(Job newJob)
     {
-        Console.WriteLine(newJob);
+        // Console.WriteLine(newJob);
         // newJob.AppliedDate = DateTime.Now;
         await _jobServ.CreateAsync(newJob);
 
         return CreatedAtAction(nameof(Get), new { id = newJob.Id }, newJob);
+    }
+
+    [Route("~/api/deleteJob")]
+    [HttpPost]
+    public async Task<IActionResult> Delete(JobFind id)
+    {
+        var job = await _jobServ.GetAsync(id.UserId);
+
+        if (job is null)
+        {
+            return NotFound();
+        }
+
+        await _jobServ.RemoveAsync(id.UserId);
+
+        return NoContent();
     }
 }

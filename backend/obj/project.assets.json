@@ -826,11 +826,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Q:\\SoftwareProjects\\backend\\JobTracker\\JobTracker.csproj",
+      "projectUniqueName": "Q:\\SoftwareProjects\\JobTracker\\backend\\JobTracker.csproj",
       "projectName": "JobTracker",
-      "projectPath": "Q:\\SoftwareProjects\\backend\\JobTracker\\JobTracker.csproj",
+      "projectPath": "Q:\\SoftwareProjects\\JobTracker\\backend\\JobTracker.csproj",
       "packagesPath": "C:\\Users\\Quan Nghiem\\.nuget\\packages\\",
-      "outputPath": "Q:\\SoftwareProjects\\backend\\JobTracker\\obj\\",
+      "outputPath": "Q:\\SoftwareProjects\\JobTracker\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Quan Nghiem\\AppData\\Roaming\\NuGet\\NuGet.Config",

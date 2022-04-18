@@ -19,8 +19,8 @@ public class JobService
 
     public async Task<List<Job>> GetAsync() => await _jobCollection.Find(_ => true).ToListAsync();
 
-    public async Task<List<Job>> GetAsync(string id) =>
-    await _jobCollection.Find(x => x.UserId == id).ToListAsync();
+    public async Task<List<Job>> GetAsync(string UserId) =>
+    await _jobCollection.Find(x => x.UserId == UserId).ToListAsync();
 
     public async Task CreateAsync(Job newJob) =>
         await _jobCollection.InsertOneAsync(newJob);

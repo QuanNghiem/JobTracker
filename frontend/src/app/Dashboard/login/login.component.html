@@ -1,0 +1,30 @@
+<div class="d-sm-flex flex-column justify-content-center w-100">
+    <div class="mx-auto">
+        <h2>Applied Jobs</h2>
+    </div>
+    <div class="w3-content w-25">
+        <form [formGroup]="userForm" autocomplete="off">
+            <div class="mb-3">
+                <label for="user" class="form-label">Username</label>
+
+                <input type="text" class="form-control" id="user" formControlName="user">
+
+                <div *ngIf="userForm.controls['user'].invalid && userForm.controls['user'].touched"
+                    class="form-text w3-text-red">Username cannot be empty!</div>
+            </div>
+            <div class="mb-3">
+                <label for="pass" class="form-label">Password</label>
+
+                <input type="password" class="form-control" id="pass" formControlName="pass">
+
+                <div *ngIf="userForm.controls['pass'].invalid && userForm.controls['pass'].touched"
+                    class="form-text w3-text-red">Password cannot be empty!</div>
+            </div>
+        </form>
+        <div class="d-sm-flex justify-content-around">
+            <button class="w3-btn w3-blue w3-round-xlarge w3-hover-blue w3-large" (click)="register()">Register</button>
+            <button class="w3-btn w3-teal w3-round-xlarge w3-hover-light-green w3-large"
+                (click)="login()">Login</button>
+        </div>
+    </div>
+</div>

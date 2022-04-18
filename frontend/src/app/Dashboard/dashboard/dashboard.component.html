@@ -1,0 +1,32 @@
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <h1 class="navbar-brand">Job Tracker</h1>
+        <button class="w3-btn w3-pink w3-border w3-border-red w3-round-large w3-right w3-hover-red"
+            data-bs-toggle="modal" data-bs-target="#logoutConfirm">Logout</button>
+    </div>
+</nav>
+
+<app-login *ngIf="!logIn"></app-login>
+
+<app-summary *ngIf="logIn"></app-summary>
+
+<div class="modal fade" id="logoutConfirm" tabindex="-1" aria-labelledby="logoutConfirm" aria-hidden="true"
+    data-bs-keyboard="false" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="logoutConfirmLabel">Logout Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to log out?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="usercloseModal" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Close</button>
+                <button class="w3-btn w3-pink w3-border w3-border-red w3-round-large w3-right w3-hover-red"
+                    (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+</div>

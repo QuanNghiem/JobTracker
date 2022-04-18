@@ -1,0 +1,25 @@
+.link {
+    width: 40vw;
+    max-width: 40vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+th,
+td {
+    border: 0.5px solid #696969;
+}
+
+tr:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
+tr:hover {
+    background-color: #696969;
+    color: #F5F5F5;
+}
+
+tr:hover a {
+    color: #F5F5F5;
+}

@@ -6,17 +6,22 @@ import { Injectable } from '@angular/core';
 })
 export class JobService {
 
-
-
   constructor (private _client: HttpClient) {
 
   }
 
-  getData () {
-    let url = 'https://localhost:7121/api/allJobs';
-    return this._client.get<any | any[]>(url);
-    // .subscribe(res => {
-    //   console.log(res);
-    // });
+  getData (body: any) {
+    let url = 'https://localhost:7121/api/userJobs';
+    return this._client.post<any | any[]>(url, body);
+  }
+
+  addJob (body: any) {
+    let url = 'https://localhost:7121/api/addJob';
+    return this._client.post(url, body);
+  }
+
+  deleteJob (body: any) {
+    let url = 'https://localhost:7121/api/deleteJob';
+    return this._client.post(url, body);
   }
 }

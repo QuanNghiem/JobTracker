@@ -27,6 +27,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<JobService>();
+builder.Services.AddSingleton<UserService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(
