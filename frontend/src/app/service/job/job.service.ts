@@ -6,22 +6,21 @@ import { Injectable } from '@angular/core';
 })
 export class JobService {
 
+  url = 'https://q-jobtrackerapi.azurewebsites.net/api';
+
   constructor (private _client: HttpClient) {
 
   }
 
   getData (body: any) {
-    let url = 'https://localhost:7121/api/userJobs';
-    return this._client.post<any | any[]>(url, body);
+    return this._client.post<any | any[]>(this.url + '/userJobs', body);
   }
 
   addJob (body: any) {
-    let url = 'https://localhost:7121/api/addJob';
-    return this._client.post(url, body);
+    return this._client.post(this.url + '/addJob', body);
   }
 
   deleteJob (body: any) {
-    let url = 'https://localhost:7121/api/deleteJob';
-    return this._client.post(url, body);
+    return this._client.post(this.url + '/deleteJob', body);
   }
 }

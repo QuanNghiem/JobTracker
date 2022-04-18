@@ -18,6 +18,8 @@ export class SummaryComponent implements OnInit {
 
   jobForm: FormGroup = new FormGroup({});
 
+  currentSelectedJobId: any;
+
   constructor (private _jobServ: JobService, private _cookie: CookieService) { }
 
   ngOnInit (): void {
@@ -75,13 +77,18 @@ export class SummaryComponent implements OnInit {
     });
   }
 
-  deleteJob (id: any): void {
+  selectJob (id: any): void {
+    this.currentSelectedJobId = id;
+  }
+
+  deleteJob (): void {
     let body = {};
-    body['UserId'] = id;
+    body['UserId'] = this.currentSelectedJobId;
     this._jobServ.deleteJob(body).subscribe(res => {
       this.summaryData = this.summaryData.filter(elem => {
-        return elem.Id !== id
+        return elem.Id !== this.currentSelectedJobId;
       });
+      document.getElementById('usercloseModal').click();
     });
   }
 }
