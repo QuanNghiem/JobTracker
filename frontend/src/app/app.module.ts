@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { SummaryComponent } from './Dashboard/summary/summary.component';
 import { AddFormComponent } from './Dashboard/add-form/add-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './Dashboard/login/login.component';
 import { CookieService } from 'ngx-cookie-service';
 import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
+import { HttpinterceptorService } from './service/interceptor/httpinterceptor.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DashboardComponent } from './Dashboard/dashboard/dashboard.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpinterceptorService, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

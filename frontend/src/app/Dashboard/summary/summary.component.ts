@@ -88,7 +88,7 @@ export class SummaryComponent implements OnInit {
       this.summaryData = this.summaryData.filter(elem => {
         return elem.Id !== this.currentSelectedJobId;
       });
-      document.getElementById('usercloseModal').click();
+      document.getElementById('deletecloseModal').click();
     });
   }
 }

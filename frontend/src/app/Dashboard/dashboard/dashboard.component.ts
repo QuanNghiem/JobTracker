@@ -24,8 +24,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   logout (): void {
     if (this._cookie.check('user')) {
-      this._cookie.delete('user');
       document.getElementById('usercloseModal').click();
+      this._cookie.delete('user');
       this.logIn = false;
     }
   }
