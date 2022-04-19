@@ -16,9 +16,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy(MyAllowSpecificOrigins,
                           policy =>
                           {
-                              policy.WithOrigins("http://localhost:4200")
+                              policy.WithOrigins("http://localhost:4200", "https://quannghiem.github.io", "https://quannghiem.github.io/JobTracker")
                                                   .AllowAnyHeader()
-                                                  .AllowAnyMethod();
+                                                  .AllowAnyMethod()
+                                                  .AllowAnyOrigin();
                           });
 });
 
